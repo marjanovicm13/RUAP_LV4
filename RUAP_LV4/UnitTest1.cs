@@ -21,7 +21,7 @@ namespace RUAP_LV4
             private string baseURL;
             private bool acceptNextAlert = true;
             static Random rnd = new Random();
-            int i = rnd.Next(1, 100000);
+            int i = rnd.Next(1, 100000); //Koristim random kako bi email adresa svaki put bila drugacija i kako bi registracija bila moguca
 
             [SetUp]
             public void SetupTest()
@@ -58,7 +58,6 @@ namespace RUAP_LV4
                 driver.FindElement(By.Id("input-lastname")).SendKeys("Doe");
                 driver.FindElement(By.Id("input-email")).Clear();
                 driver.FindElement(By.Id("input-email")).SendKeys("test432112311" + i + "@test123.com");
-                //driver.FindElement(By.Id("input-email")).SendKeys("test123@test.com");
                 driver.FindElement(By.Id("input-telephone")).Clear();
                 driver.FindElement(By.Id("input-telephone")).SendKeys("123123123");
                 driver.FindElement(By.XPath("//div[@id='content']/form/fieldset[2]")).Click();
@@ -69,15 +68,6 @@ namespace RUAP_LV4
                 driver.FindElement(By.Id("input-confirm")).SendKeys("randompassword");
                 driver.FindElement(By.Name("agree")).Click();
                 driver.FindElement(By.XPath("//input[@value='Continue']")).Click();
-                //driver.FindElement(By.Id("input-email")).Click();
-                //driver.FindElement(By.Id("input-email")).Click();
-                //driver.FindElement(By.Id("input-email")).Clear();
-                //driver.FindElement(By.Id("input-email")).SendKeys("test123@test123.com");
-                //driver.FindElement(By.XPath("//input[@value='Continue']")).Click();
-                //driver.FindElement(By.Id("input-email")).Click();
-                //driver.FindElement(By.Id("input-email")).Clear();
-                //driver.FindElement(By.Id("input-email")).SendKeys("test4321123" + i + "@test123.com");
-                //driver.FindElement(By.XPath("//input[@value='Continue']")).Click();
                 driver.FindElement(By.XPath("//div[@id='top-links']/ul/li[2]/a/span[2]")).Click();
                 driver.FindElement(By.LinkText("Logout")).Click();
                 driver.FindElement(By.XPath("//div[@id='top-links']/ul/li[2]/a/span")).Click();
